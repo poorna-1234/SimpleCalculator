@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        .a {
+            margin-top: 150px;
+            border: 2px solid #916DB3;
+            width: 400px;
+            height: 550px;
+            display: flex;
+            flex-flow: column wrap;
+            row-gap: 20px;
+            padding-left: 50px;
+            padding-top: 50px;
+            background-color: #E48586;
+            border-width: 5px;
+            background: url(hhh.jpg);
+        }
+
+        .b {
+            border: 2px solid #916DB3;
+            width: 330px;
+            height: 70px;
+            padding: 10px;
+            border-width: 4px;
+            background-color: #FDE5EC;
+        }
+
+        .c {
+            border: 2px solid #916DB3;
+            width: 295px;
+            height: 300px;
+            display: flex;
+            flex-flow: row wrap;
+            column-gap: 25px;
+            row-gap: 20px;
+            padding: 30px;
+            border-width: 3px;
+            background-color: #FDE5EC;
+            justify-content: center;
+        }
+
+        .c input[type="text"] {
+            width: 300px;
+            height: 60px;
+            font-size: 10px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .c input[type="button"] {
+            border: 2px solid #916DB3;
+            width: 38px;
+            height: 38px;
+            font-size: xx-large;
+            border-width: 3px;
+            background-color: #FCBAAD;
+            transition: transform 0.8s;
+            color: #643843;
+            font-weight: bolder;
+            cursor: pointer;
+            text-align: center;
+            justify-content: center;
+            margin: 2px;
+        }
+
+        .c input[type="button"]:hover {
+            background-color: #E48586;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="a">
+            <div class="b">
+                <label></label>
+                <input type="text" size="40" style="width: 300px; height: 60px;" id="display">
+            </div>
+            <div class="c">
+                <input type="button" value="C" onclick="clearDisplay()" class="operator">
+                <input type="button" value="D" onclick="clearDisplay()" class="operator">
+                <input type="button" value="%" onclick="appendValue('%' )" class="operator">
+                <input type="button" value="/" onclick="appendValue('/' )" class="operator">
+                
+                <input type="button" value="7" onclick="appendValue('7')" class="operator">
+                <input type="button" value="8" onclick="appendValue('8')" class="operator">
+                <input type="button" value="9" onclick="appendValue('9')" class="operator">
+                <input type="button" value="*" onclick="appendValue('*')" class="operator">
+                <input type="button" value="4" onclick="appendValue('4')" class="operator">
+                <input type="button" value="5" onclick="appendValue('5')" class="operator">
+                <input type="button" value="6" onclick="appendValue('6')" class="operator">
+                <input type="button" value="-" onclick="appendValue('-')" class="operator">
+                <input type="button" value="1" onclick="appendValue('1')" class="operator">
+                <input type="button" value="2" onclick="appendValue('2')" class="operator">
+                <input type="button" value="3" onclick="appendValue('3')" class="operator">
+                <input type="button" value="+" onclick="appendValue('+' )" class="operator">
+                <input type="button" value="00" onclick="appendValue('00')" class="operator">
+                <input type="button" value="0" onclick="appendValue('0')" class="operator">
+                <input type="button" value="." onclick="appendValue('.')" class="operator">
+                <input type="button" value="=" onclick="calculate()" class="operator">
+            </div>
+        </div>
+    </center>
+
+    <script>
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function appendValue(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function calculate() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
